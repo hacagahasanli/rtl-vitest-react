@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import App from './App';
-
+0
 test('should button starts with correct label and color', () => {
   //render the App
   render(<App />);
