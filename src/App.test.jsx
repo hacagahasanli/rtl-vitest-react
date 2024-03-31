@@ -33,7 +33,7 @@ test('should button has correct label and color after click', () => {
   expect(buttonElement).toHaveClass('blue');
 });
 
-test('checkbox flow', () => {
+test('should correctly add checkbox flow', () => {
   render(<App />);
 
   //find elements
