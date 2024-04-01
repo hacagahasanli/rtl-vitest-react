@@ -36,7 +36,7 @@ test('should button has correct label and color after click', () => {
 test('should correctly add checkbox flow', () => {
   render(<App />);
 
-  //find elements
+  //find the button elements
   const buttonElement = screen.getByRole('button', { name: /blue/i });
   const checkboxElement = screen.getByRole('checkbox', { name: /disable button/i });
 

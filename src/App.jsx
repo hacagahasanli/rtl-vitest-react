@@ -19,7 +19,7 @@ function App() {
         defaultChecked={false}
         id='disabled-button-checkbox'
       />
-      <label htmlFor='disable-button-checkbox'>Disable button</label>
+      <label htmlFor='disabled-button-checkbox'>Disable button</label>
     </div>
   );
 }
