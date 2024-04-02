@@ -3,6 +3,8 @@ import './App.css';
 
 function App() {
   const [buttonColor, setButtonColor] = useState('red');
+  const [disabled, setDisabled] = useState(false);
+
   const nextColor = buttonColor === 'red' ? 'blue' : 'red';
 
   const onButtonClick = () => setButtonColor(nextColor);
@@ -10,6 +12,7 @@ function App() {
   return (
     <div>
       <button
+        disabled={disabled}
         className={buttonColor}
         onClick={onButtonClick}
       >{`Change to ${nextColor}`}</button>
@@ -18,6 +21,7 @@ function App() {
         type='checkbox'
         defaultChecked={false}
         id='disabled-button-checkbox'
+        onChange={(e) => setDisabled(e.target.checked)}
       />
       <label htmlFor='disabled-button-checkbox'>Disable button</label>
     </div>
