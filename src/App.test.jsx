@@ -1,25 +1,24 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import App from './App';
-0
-test('should button starts with correct label and color', () => {
+
+let buttonElement, checkboxElement;
+
+beforeEach(() => {
   //render the App
   render(<App />);
 
-  //find the button
-  const buttonElement = screen.getByRole('button', { name: /blue/i });
+  //find the button elements
+  buttonElement = screen.getByRole('button', { name: /blue/i });
+  checkboxElement = screen.getByRole('checkbox', { name: /disable button/i });
+});
 
+test('should button starts with correct label and color', () => {
   //check the initial color
   expect(buttonElement).toHaveClass('red');
 });
 
 test('should button has correct label and color after click', () => {
-  //render the App
-  render(<App />);
-
-  //find the button
-  const buttonElement = screen.getByRole('button', { name: /blue/i });
-
   //check the initial color
   expect(buttonElement).toHaveClass('red');
 
@@ -36,11 +35,19 @@ test('should button has correct label and color after click', () => {
 test('should correctly add checkbox flow', () => {
   render(<App />);
 
-  //find the button elements
-  const buttonElement = screen.getByRole('button', { name: /blue/i });
-  const checkboxElement = screen.getByRole('checkbox', { name: /disable button/i });
-
   //check initial conditions
-  expect(buttonElement).toBeEnabled()
-  expect(checkboxElement).not.toBeChecked()
+  expect(buttonElement).toBeEnabled();
+  expect(checkboxElement).not.toBeChecked();
+});
+
+test('should button be disabled when checkbox is checked', () => {
+  expect(buttonElement).toBeEnabled();
+  expect(checkboxElement).not.toBeChecked();
+
+  fireEvent.click(checkboxElement);
+  expect(buttonElement).toBeDisabled();
+
+  fireEvent.click(checkboxElement);
+  expect(buttonElement).toBeEnabled();
+
 });
