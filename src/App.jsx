@@ -1,9 +1,10 @@
 import { useState } from 'react';
+
 import './App.css';
 
 function App() {
-  const [buttonColor, setButtonColor] = useState('red');
   const [disabled, setDisabled] = useState(false);
+  const [buttonColor, setButtonColor] = useState('red');
 
   const nextColor = buttonColor === 'red' ? 'blue' : 'red';
 
