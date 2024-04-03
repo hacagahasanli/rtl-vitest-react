@@ -49,4 +49,17 @@ describe('App.test.jsx', () => {
     fireEvent.click(checkboxElement);
     expect(buttonElement).toBeEnabled();
   });
+
+  test('should button color be gray when button is disabled', () => {
+    expect(buttonElement).toBeEnabled();
+    expect(checkboxElement).not.toBeChecked();
+
+    fireEvent.click(checkboxElement);
+    expect(buttonElement).toBeDisabled();
+    expect(buttonElement).toHaveClass('gray')
+
+    fireEvent.click(checkboxElement);
+    expect(buttonElement).toBeEnabled();
+    expect(buttonElement).toHaveClass('red' || 'blue')
+  });
 });

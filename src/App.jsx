@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import './App.css';
 
@@ -8,13 +8,18 @@ function App() {
 
   const nextColor = buttonColor === 'red' ? 'blue' : 'red';
 
+  const onCheckboxChange = useCallback(
+    (e) => setDisabled(e.target.checked),
+    [buttonColor]
+  );
+
   const onButtonClick = () => setButtonColor(nextColor);
 
   return (
     <div>
       <button
         disabled={disabled}
-        className={buttonColor}
+        className={disabled ? 'gray' : buttonColor}
         onClick={onButtonClick}
       >{`Change to ${nextColor}`}</button>
       <br />
@@ -22,7 +27,7 @@ function App() {
         type='checkbox'
         defaultChecked={false}
         id='disabled-button-checkbox'
-        onChange={(e) => setDisabled(e.target.checked)}
+        onChange={onCheckboxChange}
       />
       <label htmlFor='disabled-button-checkbox'>Disable button</label>
     </div>
