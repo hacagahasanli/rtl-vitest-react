@@ -5,10 +5,8 @@ import App from './App';
 let buttonElement, checkboxElement;
 
 beforeEach(() => {
-  //render the App
   render(<App />);
 
-  //find the button elements
   buttonElement = screen.getByRole('button', { name: /blue/i });
   checkboxElement = screen.getByRole('checkbox', { name: /disable button/i });
 });
