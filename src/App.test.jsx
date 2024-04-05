@@ -20,16 +20,11 @@ describe('App.test.jsx', () => {
   });
 
   test('should button has correct label and color after click', () => {
-    //check the initial color
     expect(buttonElement).toHaveClass('red');
 
-    //click the button
     fireEvent.click(buttonElement);
 
-    //check the button text
     expect(buttonElement).toHaveTextContent(/red/i);
-
-    //check the button color
     expect(buttonElement).toHaveClass('blue');
   });
 
