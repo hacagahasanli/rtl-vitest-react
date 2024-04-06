@@ -5,17 +5,14 @@ import App from './App';
 let buttonElement, checkboxElement;
 
 beforeEach(() => {
-  //render the App
   render(<App />);
 
-  //find the button elements
   buttonElement = screen.getByRole('button', { name: /blue/i });
   checkboxElement = screen.getByRole('checkbox', { name: /disable button/i });
 });
 
 describe('App.test.jsx', () => {
   test('should button starts with correct label and color', () => {
-    //check the initial color
     expect(buttonElement).toHaveClass('red');
   });
 
@@ -29,7 +26,6 @@ describe('App.test.jsx', () => {
   });
 
   test('should correctly add checkbox flow', () => {
-    //check initial conditions
     expect(buttonElement).toBeEnabled();
     expect(checkboxElement).not.toBeChecked();
   });
