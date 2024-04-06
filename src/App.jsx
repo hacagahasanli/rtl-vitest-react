@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import './App.css';
 
@@ -13,7 +13,7 @@ function App() {
     [buttonColor]
   );
 
-  const onButtonClick = () => setButtonColor(nextColor);
+  const onButtonClick = useCallback(() => setButtonColor(nextColor), []);
 
   return (
     <div>
